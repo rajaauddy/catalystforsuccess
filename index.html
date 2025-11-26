@@ -1,162 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalyst for Success</title>
 
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <head> 
-    <meta name="viewport">
-    <title>Scan Copy</title>
-    </head>
-    <link href="./Flexbox_files/css2" rel="stylesheet"><link rel="stylesheet" href="./Flexbox_files/flexbox.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
-<style>      
-          input[type=text], select 
-          {
-                padding: 6px 12px;
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 1.5;
-                color: #212529;
-                background-color: #fff;
-                background-clip: padding-box;
-                border: 1px solid #ced4da;
-                appearance: none;
-                border-radius: 4px;
-                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                :focus{
-                    color: #212529;
-                    background-color: #fff;
-                    border-color: #86b7fe;
-                    outline: 0;
-                    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
-                }
-                
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-          }   
-          
-          input[type=password], select 
-          {
-                padding: 6px 12px;
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 1.5;
-                color: #212529;
-                background-color: #fff;
-                background-clip: padding-box;
-                border: 1px solid #ced4da;
-                appearance: none;
-                border-radius: 4px;
-                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                :focus{
-                    color: #212529;
-                    background-color: #fff;
-                    border-color: #86b7fe;
-                    outline: 0;
-                    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
-                }
-                
+<style>
+    :root {
+        /* LIGHT THEME */
+        --bg: #f5f7fa;
+        --card: #ffffff;
+        --text: #222;
+        --accent: #4dabf7;
+    }
 
-          }   
-                
-body {
-  font-family: "ubuntu";
-}
+    body[data-theme="dark"] {
+        /* DARK THEME */
+        --bg: #161b22;
+        --card: #1f2937;
+        --text: #e2e8f0;
+        --accent: #4dabf7;
+    }
+
+    body {
+        font-family: "Ubuntu", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+        transition: 0.3s ease;
+    }
+
+    .container {
+        max-width: 950px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: var(--text);
+    }
+
+    /* Toggle Button */
+    .toggle-btn {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        background: var(--accent);
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 22px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+        transform: scale(1.1);
+    }
+
+    /* Sections */
+    .section {
+        background: var(--card);
+        padding: 25px 30px;
+        border-radius: 14px;
+        margin-bottom: 35px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        transition: 0.3s;
+    }
+
+    body[data-theme="dark"] .section {
+        box-shadow: 0 6px 16px rgba(255,255,255,0.06);
+    }
+
+    .section h2 {
+        font-size: 26px;
+        margin-top: 0;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text);
+    }
+
+    /* Chapter Links */
+    a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-size: 18px;
+        color: var(--text);
+        padding: 8px 0;
+        transition: 0.25s ease;
+    }
+
+    a:hover {
+        transform: scale(1.05);
+        color: var(--accent);
+    }
+
+    a:hover span {
+        transform: translateY(-2px);
+        transition: 0.25s ease;
+    }
+
 </style>
-<body>
- <center><font size="7">Scan Copy Of Books</font></center>
-        <font size="5">PYQ Class XII-Arihant</font><br>
-        <a href="https://drive.google.com/file/d/1mJRAQnyBSRc75msPss4jBvSoBaqlY4zd/view?usp=sharing">Intro</a><br>
-        <a href="https://drive.google.com/file/d/1JJyZ9bNdSmpaAWFbtOuJmLIK0-8-UbkK/view?usp=sharing">Chapter 1 - Solution</a><br>
-        <a href="https://drive.google.com/file/d/1JvKjU0xmbR60iB8tpYKAWlCZQ-RuexC9/view?usp=sharing">Chapter 2 - Electrochemistry</a><br>
-        <a href="https://drive.google.com/file/d/10-vtpMSRnVSSdR-3HRe2BFp0-Gxdco6v/view?usp=sharing">Chapter 3 - Chemical Kinetics</a><br>
-        <a href="https://drive.google.com/file/d/1XtHdZAwgtZaud91jB_yjvUFYjIFeM_hR/view?usp=sharing">Chapter 4 - d-and-f Block Element</a><br>
-        <a href="https://drive.google.com/file/d/1VJ1H1cw14J2JrjkuFrmPEASE-TBljaiW/view?usp=sharing">Chapter 5 - Coordination Compounds</a><br>
-        <a href="https://drive.google.com/file/d/1miqceC4_RLtSMpJNjtwQfAtDXxSxn4WN/view?usp=sharing">Chapter 6 - Haloalkanes and Haloarenes</a><br>
-        <a href="https://drive.google.com/file/d/1spGx6IcSh-J4Wl_mrI48mPb9qkePMetI/view?usp=sharing">Chapter 7 - Alcohols Phenols Ethers</a><br>
-        <a href="https://drive.google.com/file/d/1xBiVNqjlU_RCbmbCfB0muLxD4E7Qp-VA/view?usp=sharing">Chapter 8 - Aldehydes, Ketones and Carboxylic Acids</a><br>
-        <a href="https://drive.google.com/file/d/17K2nrIce32SSS1pyom8IcbxQz5dWrsbm/view?usp=sharing">Chapter 9 - Amines</a><br>
-        <a href="https://drive.google.com/file/d/1ryxvG98C1vmshGHb8Y_XodOkyfJntTwz/view?usp=sharing">Chapter 10 - Biomolecules</a><br><br><br>
-        <font size="5">PYQ Class X-Arihant Checkmate</font><br>
-        <a href="https://drive.google.com/file/d/127UV6MUAZlr65NxbGrEN-nteAV4P-reL/view?usp=sharing">Intro</a><br>
-        <a href="https://drive.google.com/file/d/18NR2pZetXoOzALhOZcBK7zlbADIUfx35/view?usp=sharing">Chapter 1 - Chemical Reactions and Equations</a><br>
-        <a href="https://drive.google.com/file/d/1uJTw2JgVwPwn61B_rXsBp4sJsxA8F0Ti/view?usp=sharing">Chapter 2 - Acids, Bases and Salts</a><br>
-        <a href="https://drive.google.com/file/d/1cGD_YaYVYYfVtpS9vCFYd6SiVHbe1uFw/view?usp=sharing">Chapter 3 - Metals and Non-metals</a><br>
-        <a href="https://drive.google.com/file/d/1KSBYMiznD06QciUwjYAfIyqCMmnZvcKk/view?usp=sharing">Chapter 4 - Carbon and its Compounds</a><br>
-        <a href="https://drive.google.com/file/d/1I1Tgp8bCEu2k4JVod0nkpTJJCnl9JcZ4/view?usp=sharing">Chapter 5 - Life Processes</a><br>
-        <a href="https://drive.google.com/file/d/1jJ6dM2AQVfSauf2Lz877XwiJShu3Q_I2/view?usp=sharing">Chapter 6 - Control and Coordination</a><br>
-        <a href="https://drive.google.com/file/d/1Gi7UDhX9b5U_gLB0_YKkgOxdhjoLKyXl/view?usp=sharing">Chapter 7 - How do Organisms Reproduce?</a><br>
-        <a href="https://drive.google.com/file/d/1qfvwXTgkl3Ol2rfv3KVUvxE0D2-Xd9X1/view?usp=sharing">Chapter 8 - Heredity</a><br>
-        <a href="https://drive.google.com/file/d/1Nl9J0Bg1Lo1t2EWn6omkThQDZsYkLG-n/view?usp=sharing">Chapter 9 - Light Reflection and Refraction</a><br>
-        <a href="https://drive.google.com/file/d/1qYgDAI3qk_2fHNqjJRo0Ji--j8x3-Pey/view?usp=sharing">Chapter 10 - The Human Eye and the Colourful World</a><br>
-        <a href="https://drive.google.com/file/d/1RR6cMBW8TQdT9VIe-YE3D0myAN6VdRKh/view?usp=sharing">Chapter 11 - Electricity</a><br>
-        <a href="https://drive.google.com/file/d/1qIUfZrdvl6_1LSXnApeCBJAGAqpSaWav/view?usp=sharing">Chapter 12 - Magnetic Effects of Electric Current</a><br>
-        <a href="https://drive.google.com/file/d/1y_16hZDUbSXuEMJWBLY2oKJ6L5SVYhJI/view?usp=sharing">Chapter 13 - Our Environment</a><br><br><br>
-        <font size="5">Class 12 - Arihant Exemplar</font><br>
-        <a href="https://drive.google.com/file/d/1fxesoa1ewD_Ec7UGSIm_muYRT3Z4G0Sc/view?usp=sharing">Intro</a><br>
-        <a href="https://drive.google.com/file/d/1o8alQ6KDzHR_oi2cWvN1mCuEz7wg7qOr/view?usp=sharing">Chapter 1 - Solid State</a><br>
-        <a href="https://drive.google.com/file/d/1iyhojxAJt5ZTC-41yGit-dzp-ivD2bTz/view?usp=sharing">Chapter 2 - Solutions</a><br>
-        <a href="https://drive.google.com/file/d/1qBJY4wDMA0TL33ktw9hxR4o5JN8STEzj/view?usp=sharing">Chapter 3 - Electrochemistry</a><br>
-        <a href="https://drive.google.com/file/d/1utVGnEk6ATCRfB1PFIv4DG4xZBkeWgxF/view?usp=sharing">Chapter 4 - Chemical Kinetics</a><br>
-        <a href="https://drive.google.com/file/d/1bJv-STzZ1sv3VJ2U2Lw2UVbMEKXkUk7N/view?usp=sharing">Chapter 5 - Surface Chemistry</a><br>
-        <a href="https://drive.google.com/file/d/1jboGA_vCO7o7hSEdoToo0MRn9PTo_FWY/view?usp=sharing">Chapter 6 - General Principle and Process Of Isolation of Elements</a><br>
-        <a href="https://drive.google.com/file/d/1YoioVBSC_3HyqJAqefH1JFOv60B0NSd4/view?usp=sharing">Chapter 7 - p-Block Elements</a><br>
-        <a href="https://drive.google.com/file/d/1lEp8CynrcjC0O1pok6PVVqQ_H-F_8vol/view?usp=sharing">Chapter 8 - d and f-Block Elements</a><br>
-        <a href="https://drive.google.com/file/d/1n5TUUy6wif3YYfoM73RbFeszzp5T95to/view?usp=sharing">Chapter 9 - Coordination Compounds</a><br>
-        <a href="https://drive.google.com/file/d/1f3x9ssRZ76r28fkkX_0N1H77mN22pkw4/view?usp=sharing">Chapter 10 - Haloalkanes and Haloarenes</a><br>
-        <a href="https://drive.google.com/file/d/1b2XCb8WbW-YqIzTxYYh3UZUYIbw9SABs/view?usp=sharing">Chapter 11 - Alcohols, Phenols and Ethers</a><br>
-        <a href="https://drive.google.com/file/d/1TSHp7BhEVglLy3Te1GThH7Z008kBhAfK/view?usp=sharing">Chapter 12 - Aldehyde,Ketones and Carboxylic Acids</a><br>
-        <a href="https://drive.google.com/file/d/1KsCvPRoQ4MPQIBysk3ZCMUN8jyIu0E-f/view?usp=sharing">Chapter 13 - Amines</a><br>
-        <a href="https://drive.google.com/file/d/1IK9z1MDsVZeNQ4665MFJkOLNq5oRrdxB/view?usp=sharing">Chapter 14 - Biomolecules</a><br>
-        <a href="https://drive.google.com/file/d/1kteA-cA7VkfCVe9K_16sZ3iFw5FDCQhg/view?usp=sharing">Chapter 15 - Polymer</a><br>
-        <a href="https://drive.google.com/file/d/1jP3L3E2TMu4woalln6BsXVVebwTZ_TgT/view?usp=sharing">Chapter 16 - Chemistry In Daily Life</a><br><br><br>
-        <font size="5">Class 11 - Arihant Exemplar</font><br>
-        <a href="https://drive.google.com/file/d/1Y9tIqlhb0x3g-B9KlpF5eiLqsrPmKLGT/view?usp=sharing">Intro</a><br>
-        <a href="https://drive.google.com/file/d/1KDvYwFpsezaOw2QQ4V0no-wpR7A-uae2/view?usp=sharing">Chapter 1 - Some Basic Concepts Of Chemistry</a><br>
-        <a href="https://drive.google.com/file/d/1q0yF_680JM57ELXi6KC-7w7gIS8AJT3R/view?usp=sharing">Chapter 2 - Structure of Atom</a><br>
-        <a href="https://drive.google.com/file/d/1j1xXZkH7r05KNsMsjSVn8KZnGkskZ512/view?usp=sharing">Chapter 3 - Classification of Elements</a><br>
-        <a href="https://drive.google.com/file/d/1X7RWuQppoG3AEjMJN9MGzIv559DBER0p/view?usp=sharing">Chapter 4 - Chemical Bonding and Molecular Structure</a><br>
-        <a href="https://drive.google.com/file/d/1QIbOHaOMP351Gd8WKqL2pCEfPgA4KRbD/view?usp=sharing">Chapter 5 - States of Matter</a><br>
-        <a href="https://drive.google.com/file/d/1ERnAF8gKaKr_ApXAuzTvt48mu746wE51/view?usp=sharing">Chapter 6 - Thermodynamics</a><br>
-        <a href="https://drive.google.com/file/d/15MfDaY7BbrT7-ybFl6Eol1IO5ecArpoo/view?usp=sharing">Chapter 7 - Equilibrium</a><br>
-        <a href="https://drive.google.com/file/d/1hNB_3C0v7ZFw4EoGNpncTghV11jZZNqq/view?usp=sharing">Chapter 8 - Redox Reactions</a><br>
-        <a href="https://drive.google.com/file/d/1iIPgaXoJItgIcCuT4k5YscwxgBFVGLZW/view?usp=sharing">Chapter 9 - Hydrogen</a><br>
-        <a href="https://drive.google.com/file/d/1WxoZavP6sA54WH5tYWkZAXomNDDprrrV/view?usp=sharing">Chapter 10 - The s-Block Elements</a><br>
-        <a href="https://drive.google.com/file/d/1K0lFY9zVr34zzZ98OzK5HvMSHUzLZu3X/view?usp=sharing">Chapter 11 - The p-Block Elements</a><br>
-        <a href="https://drive.google.com/file/d/1nE62j5b6tkkjIfzgi1TcoU8ayW41PK93/view?usp=sharing">Chapter 12 - Organic Chemistry Some Basic Principal & Techniques</a><br>
-        <a href="https://drive.google.com/file/d/1M43W1v4Rvtrah1vpqjKMkv5AnyyJxviL/view?usp=sharing">Chapter 13 - Hydrocarbons</a><br>
-        <a href="https://drive.google.com/file/d/1fAfoBJ0rK9kPBkT5Ml6iq96OF1jYTHfP/view?usp=sharing">Chapter 14 - Environmental Chemistry</a><br><br><br>
-        <font size="5">Class 10 - Arihant Exemplar</font><br>
-        <a href="https://drive.google.com/file/d/1Wen0SMmYJNT4XWINcfWGtbNylyYibqc3/view?usp=sharing">Intro</a><br>
-        <a href="https://drive.google.com/file/d/1zx5B_Q_164e6SG2nytjT5wKj6FbKyoKB/view?usp=sharing">Chapter 1 - Chemical Reactions and Equations</a><br>
-        <a href="https://drive.google.com/file/d/1UOT6OL2Gl-fe26S-RyqPsMSJXoYzGVR1/view?usp=sharing">Chapter 2 - Acids, Bases and Salts</a><br>
-        <a href="https://drive.google.com/file/d/1ifbilRFfaH-1Pq4KCbM-83cNpCxCrCZI/view?usp=sharing">Chapter 3 - Metals and Non-metals</a><br>
-        <a href="https://drive.google.com/file/d/1KM3WByFCS5RNi_nJeKYoUmPeSGM7gaRs/view?usp=sharing">Chapter 4 - Carbon and its Compounds</a><br>
-        <a href="https://drive.google.com/file/d/1gJhFKnf41VfHi4-Czd43aoDMIoN0xk-Z/view?usp=sharing">Chapter 5 - Periodic Classification Of Elements</a><br>
-        <a href="https://drive.google.com/file/d/1HsDb08WoKfeN2YkuJ3po7w1tJgXIUc0f/view?usp=sharing">Chapter 6 - Life Processes</a><br>
-        <a href="https://drive.google.com/file/d/1Z0BXcIcZf1lAV1QQgKhdarLUMYfijY7F/view?usp=sharing">Chapter 7 - Control and Coordination</a><br>
-        <a href="https://drive.google.com/file/d/1ldQ8xVNe05fBrX0D_iLP1a8_Sm3uAmpe/view?usp=sharing">Chapter 8 - How do Organisms Reproduce</a><br>
-        <a href="https://drive.google.com/file/d/1elthNVNUpB_ERppq4j3rIW3Z-o52YVyC/view?usp=sharing">Chapter 9 - Heredity</a><br>
-        <a href="https://drive.google.com/file/d/1bHhM5yThldTfejGy__Il7SvqCmavD1br/view?usp=sharing">Chapter 10 - Light - Reflection and Refraction</a><br>
-        <a href="https://drive.google.com/file/d/1yhdKAVeevn2_rJR3F6jS0ZORNuQWn5to/view?usp=sharing">Chapter 11 - The Human Eye and the Colourful World</a><br>
-        <a href="https://drive.google.com/file/d/1DL7DMVMJXdYCzy02xcpqeBsE0fjpNDhv/view?usp=sharing">Chapter 12 - Electricity</a><br>
-        <a href="https://drive.google.com/file/d/15CU62rAp0e6W_L7X9p3pfVJsz8GRauAn/view?usp=sharing">Chapter 13 - Magnetic Effects of Electric Current</a><br>
-        <a href="https://drive.google.com/file/d/1Uni5biN6qiGBd8GcijAvVm-byUbs0Azt/view?usp=sharing">Chapter 14 - Sources Of Energy</a><br>
-        <a href="https://drive.google.com/file/d/1MQSOxpGkegTfGtNrX257Wv5oWtv0CtSj/view?usp=sharing">Chapter 15 - Our Environment</a><br>
-        <a href="https://drive.google.com/file/d/13jW8xyUabXO0Hz4mF-Qkzz_XP9GE1JpE/view?usp=sharing">Chapter 16 - Management Of Natural Resouces</a><br><br><br>
-   <font size="5">Class 9 - CBSE Exemplar</font><br>
-        <a href="https://drive.google.com/file/d/1jpsH4u_u-3pLxKnieXVkednxg1d0MLdG/view?usp=sharing">Chapter 1 - Matter In Our Surroundings</a><br>
-        <a href="https://drive.google.com/file/d/1naXKjMXpe0UF2iYKU-4N08ePS-xxSif8/view?usp=sharing">Chapter 2 - Is Matter Around Us Pure</a><br>
-        <a href="https://drive.google.com/file/d/1cEb0kQwvgAK8_bYyO6qBiczp6FgoJDYn/view?usp=sharing">Chapter 3 - Atoms And Molecules</a><br>
-        <a href="https://drive.google.com/file/d/1IjuPlaG-MA4GCUPruvjsAnGJCKFMvlce/view?usp=sharing">Chapter 4 - Structure Of The Atom</a><br>
-        <a href="https://drive.google.com/file/d/1cETdHE13P2hqc_YYhBmN5HKvbPdmWhgH/view?usp=sharing">Chapter 5 - The Fundamental Unit Of Life</a><br>
-        <a href="https://drive.google.com/file/d/1PfqDnAtVEhoSZ7TaVGOeOCadHTKp5POD/view?usp=sharing">Chapter 6 - Tissues</a><br>
-        <a href="https://drive.google.com/file/d/1TJ3wQbXQ7D-iFomyDKyjgfi8gm8dSMLE/view?usp=sharing">Chapter 7 - Diversity In Living Organisms</a><br>
-        <a href="https://drive.google.com/file/d/18BDWB6ckYsWyM745_49R7nxuXdZP2wqA/view?usp=sharing">Chapter 8 - Motion</a><br>
-        <a href="https://drive.google.com/file/d/19dxy7aSEPK8C99SDHL-ljxY1r6xP90j4/view?usp=sharing">Chapter 9 - Force And Laws Of Motion</a><br>
-        <a href="https://drive.google.com/file/d/1rH_zkTE9BLh8ESEL6EDanz5_DkLQEkyg/view?usp=sharing">Chapter 10 - Gravitation</a><br>
-        <a href="https://drive.google.com/file/d/1yOtwNKyw4swBMFdiBgeXBvUpqoUsC_ts/view?usp=sharing">Chapter 11 - Work And Energy</a><br>
-        <a href="https://drive.google.com/file/d/1FFceKWWQsjzARkby1ETvXssc1PR8VCTQ/view?usp=sharing">Chapter 12 - Sound</a><br>
-        <a href="https://drive.google.com/file/d/1-spypwZ9sOdqIYLN_iq2anPelbhkrVNd/view?usp=sharing">Chapter 13 - Why Do We Fall Ill</a><br>
-        <a href="https://drive.google.com/file/d/11qW6IrznMJ1oXqTog5esX-w6rZMx_Wj8/view?usp=sharing">Chapter 14 - Natural Resources</a><br>
-        <a href="https://drive.google.com/file/d/1kKc-OHn1jn0-B1hWJF3f8ct52XdB-xOF/view?usp=sharing">Chapter 15 - Improvement In Food Resources</a><br>
-</body></html>
+</head>
+
+<body data-theme="dark">
+
+<button class="toggle-btn" id="themeToggle">🌞</button>
+
+<div class="container"><br><br>
+    <h1>📚 Catalyst for Success</h1>
+
+    <!-- CLASS 12 -->
+    <div class="section">
+        <h2>PYQ Class XII – Arihant</h2>
+	<a href="https://drive.google.com/file/d/1mJRAQnyBSRc75msPss4jBvSoBaqlY4zd/view?usp=sharing">📝 Intro</a><br>
+<a href="https://drive.google.com/file/d/1JJyZ9bNdSmpaAWFbtOuJmLIK0-8-UbkK/view?usp=sharing">🧊 Chapter 1 - Solution</a><br>
+<a href="https://drive.google.com/file/d/1JvKjU0xmbR60iB8tpYKAWlCZQ-RuexC9/view?usp=sharing">⚡ Chapter 2 - Electrochemistry</a><br>
+<a href="https://drive.google.com/file/d/10-vtpMSRnVSSdR-3HRe2BFp0-Gxdco6v/view?usp=sharing">⏳ Chapter 3 - Chemical Kinetics</a><br>
+<a href="https://drive.google.com/file/d/1XtHdZAwgtZaud91jB_yjvUFYjIFeM_hR/view?usp=sharing">🔬 Chapter 4 - d-and-f Block Element</a><br>
+<a href="https://drive.google.com/file/d/1VJ1H1cw14J2JrjkuFrmPEASE-TBljaiW/view?usp=sharing">🧩 Chapter 5 - Coordination Compounds</a><br>
+<a href="https://drive.google.com/file/d/1miqceC4_RLtSMpJNjtwQfAtDXxSxn4WN/view?usp=sharing">🧪 Chapter 6 - Haloalkanes and Haloarenes</a><br>
+<a href="https://drive.google.com/file/d/1spGx6IcSh-J4Wl_mrI48mPb9qkePMetI/view?usp=sharing">🍶 Chapter 7 - Alcohols Phenols Ethers</a><br>
+<a href="https://drive.google.com/file/d/1xBiVNqjlU_RCbmbCfB0muLxD4E7Qp-VA/view?usp=sharing">🧴 Chapter 8 - Aldehydes, Ketones and Carboxylic Acids</a><br>
+<a href="https://drive.google.com/file/d/17K2nrIce32SSS1pyom8IcbxQz5dWrsbm/view?usp=sharing">🧑‍🔬 Chapter 9 - Amines</a><br>
+<a href="https://drive.google.com/file/d/1ryxvG98C1vmshGHb8Y_XodOkyfJntTwz/view?usp=sharing">🥗 Chapter 10 - Biomolecules</a><br><br><br>
+
+    </div>
 
     
+  <div class="section">
+        <h2>PYQ Class X-Arihant Checkmate</h2>
+	<a href="https://drive.google.com/file/d/127UV6MUAZlr65NxbGrEN-nteAV4P-reL/view?usp=sharing">📝 Intro</a><br>
+<a href="https://drive.google.com/file/d/18NR2pZetXoOzALhOZcBK7zlbADIUfx35/view?usp=sharing">⚗️ Chapter 1 - Chemical Reactions and Equations</a><br>
+<a href="https://drive.google.com/file/d/1uJTw2JgVwPwn61B_rXsBp4sJsxA8F0Ti/view?usp=sharing">🧪 Chapter 2 - Acids, Bases and Salts</a><br>
+<a href="https://drive.google.com/file/d/1cGD_YaYVYYfVtpS9vCFYd6SiVHbe1uFw/view?usp=sharing">🔩 Chapter 3 - Metals and Non-metals</a><br>
+<a href="https://drive.google.com/file/d/1KSBYMiznD06QciUwjYAfIyqCMmnZvcKk/view?usp=sharing">🧬 Chapter 4 - Carbon and its Compounds</a><br>
+<a href="https://drive.google.com/file/d/1I1Tgp8bCEu2k4JVod0nkpTJJCnl9JcZ4/view?usp=sharing">💓 Chapter 5 - Life Processes</a><br>
+<a href="https://drive.google.com/file/d/1jJ6dM2AQVfSauf2Lz877XwiJShu3Q_I2/view?usp=sharing">🧠 Chapter 6 - Control and Coordination</a><br>
+<a href="https://drive.google.com/file/d/1Gi7UDhX9b5U_gLB0_YKkgOxdhjoLKyXl/view?usp=sharing">👶 Chapter 7 - How do Organisms Reproduce?</a><br>
+<a href="https://drive.google.com/file/d/1qfvwXTgkl3Ol2rfv3KVUvxE0D2-Xd9X1/view?usp=sharing">🧬 Chapter 8 - Heredity</a><br>
+<a href="https://drive.google.com/file/d/1Nl9J0Bg1Lo1t2EWn6omkThQDZsYkLG-n/view?usp=sharing">🔆 Chapter 9 - Light Reflection and Refraction</a><br>
+<a href="https://drive.google.com/file/d/1qYgDAI3qk_2fHNqjJRo0Ji--j8x3-Pey/view?usp=sharing">👁️ Chapter 10 - The Human Eye and the Colourful World</a><br>
+<a href="https://drive.google.com/file/d/1RR6cMBW8TQdT9VIe-YE3D0myAN6VdRKh/view?usp=sharing">⚡ Chapter 11 - Electricity</a><br>
+<a href="https://drive.google.com/file/d/1qIUfZrdvl6_1LSXnApeCBJAGAqpSaWav/view?usp=sharing">🧲 Chapter 12 - Magnetic Effects of Electric Current</a><br>
+<a href="https://drive.google.com/file/d/1y_16hZDUbSXuEMJWBLY2oKJ6L5SVYhJI/view?usp=sharing">🌳 Chapter 13 - Our Environment</a><br><br><br>
+    </div>
 
+    <div class="section">
+        <h2>PYQ Class XII – Arihant Exemplar</h2>
+	<a href="https://drive.google.com/file/d/1fxesoa1ewD_Ec7UGSIm_muYRT3Z4G0Sc/view?usp=sharing">📝 Intro</a><br>
+<a href="https://drive.google.com/file/d/1o8alQ6KDzHR_oi2cWvN1mCuEz7wg7qOr/view?usp=sharing">🧊 Chapter 1 - Solid State</a><br>
+<a href="https://drive.google.com/file/d/1iyhojxAJt5ZTC-41yGit-dzp-ivD2bTz/view?usp=sharing">💧 Chapter 2 - Solutions</a><br>
+<a href="https://drive.google.com/file/d/1qBJY4wDMA0TL33ktw9hxR4o5JN8STEzj/view?usp=sharing">🔋 Chapter 3 - Electrochemistry</a><br>
+<a href="https://drive.google.com/file/d/1utVGnEk6ATCRfB1PFIv4DG4xZBkeWgxF/view?usp=sharing">⏱️ Chapter 4 - Chemical Kinetics</a><br>
+<a href="https://drive.google.com/file/d/1bJv-STzZ1sv3VJ2U2Lw2UVbMEKXkUk7N/view?usp=sharing">🌊 Chapter 5 - Surface Chemistry</a><br>
+<a href="https://drive.google.com/file/d/1jboGA_vCO7o7hSEdoToo0MRn9PTo_FWY/view?usp=sharing">⚗️ Chapter 6 - General Principle and Process Of Isolation of Elements</a><br>
+<a href="https://drive.google.com/file/d/1YoioVBSC_3HyqJAqefH1JFOv60B0NSd4/view?usp=sharing">🟢 Chapter 7 - p-Block Elements</a><br>
+<a href="https://drive.google.com/file/d/1lEp8CynrcjC0O1pok6PVVqQ_H-F_8vol/view?usp=sharing">🔵 Chapter 8 - d and f-Block Elements</a><br>
+<a href="https://drive.google.com/file/d/1n5TUUy6wif3YYfoM73RbFeszzp5T95to/view?usp=sharing">💎 Chapter 9 - Coordination Compounds</a><br>
+<a href="https://drive.google.com/file/d/1f3x9ssRZ76r28fkkX_0N1H77mN22pkw4/view?usp=sharing">🧪 Chapter 10 - Haloalkanes and Haloarenes</a><br>
+<a href="https://drive.google.com/file/d/1b2XCb8WbW-YqIzTxYYh3UZUYIbw9SABs/view?usp=sharing">🍷 Chapter 11 - Alcohols, Phenols and Ethers</a><br>
+<a href="https://drive.google.com/file/d/1TSHp7BhEVglLy3Te1GThH7Z008kBhAfK/view?usp=sharing">🥫 Chapter 12 - Aldehyde, Ketones and Carboxylic Acids</a><br>
+<a href="https://drive.google.com/file/d/1KsCvPRoQ4MPQIBysk3ZCMUN8jyIu0E-f/view?usp=sharing">🧪 Chapter 13 - Amines</a><br>
+<a href="https://drive.google.com/file/d/1IK9z1MDsVZeNQ4665MFJkOLNq5oRrdxB/view?usp=sharing">🍀 Chapter 14 - Biomolecules</a><br>
+<a href="https://drive.google.com/file/d/1kteA-cA7VkfCVe9K_16sZ3iFw5FDCQhg/view?usp=sharing">🧵 Chapter 15 - Polymer</a><br>
+<a href="https://drive.google.com/file/d/1jP3L3E2TMu4woalln6BsXVVebwTZ_TgT/view?usp=sharing">🧴 Chapter 16 - Chemistry In Daily Life</a><br><br><br>
+
+    </div>
+
+
+ <div class="section">
+<h2>Class XI - Arihant Exemplar</h2>
+
+<a href="https://drive.google.com/file/d/1Y9tIqlhb0x3g-B9KlpF5eiLqsrPmKLGT/view?usp=sharing">📝 Intro</a><br>
+<a href="https://drive.google.com/file/d/1KDvYwFpsezaOw2QQ4V0no-wpR7A-uae2/view?usp=sharing">⚛️ Chapter 1 - Some Basic Concepts Of Chemistry</a><br>
+<a href="https://drive.google.com/file/d/1q0yF_680JM57ELXi6KC-7w7gIS8AJT3R/view?usp=sharing">🧲 Chapter 2 - Structure of Atom</a><br>
+<a href="https://drive.google.com/file/d/1j1xXZkH7r05KNsMsjSVn8KZnGkskZ512/view?usp=sharing">🧪 Chapter 3 - Classification of Elements</a><br>
+<a href="https://drive.google.com/file/d/1X7RWuQppoG3AEjMJN9MGzIv559DBER0p/view?usp=sharing">🔗 Chapter 4 - Chemical Bonding and Molecular Structure</a><br>
+<a href="https://drive.google.com/file/d/1QIbOHaOMP351Gd8WKqL2pCEfPgA4KRbD/view?usp=sharing">🌡️ Chapter 5 - States of Matter</a><br>
+<a href="https://drive.google.com/file/d/1ERnAF8gKaKr_ApXAuzTvt48mu746wE51/view?usp=sharing">🔥 Chapter 6 - Thermodynamics</a><br>
+<a href="https://drive.google.com/file/d/15MfDaY7BbrT7-ybFl6Eol1IO5ecArpoo/view?usp=sharing">⚖️ Chapter 7 - Equilibrium</a><br>
+<a href="https://drive.google.com/file/d/1hNB_3C0v7ZFw4EoGNpncTghV11jZZNqq/view?usp=sharing">🔴 Chapter 8 - Redox Reactions</a><br>
+<a href="https://drive.google.com/file/d/1iIPgaXoJItgIcCuT4k5YscwxgBFVGLZW/view?usp=sharing">💨 Chapter 9 - Hydrogen</a><br>
+<a href="https://drive.google.com/file/d/1WxoZavP6sA54WH5tYWkZAXomNDDprrrV/view?usp=sharing">🟡 Chapter 10 - The s-Block Elements</a><br>
+<a href="https://drive.google.com/file/d/1K0lFY9zVr34zzZ98OzK5HvMSHUzLZu3X/view?usp=sharing">🟢 Chapter 11 - The p-Block Elements</a><br>
+<a href="https://drive.google.com/file/d/1nE62j5b6tkkjIfzgi1TcoU8ayW41PK93/view?usp=sharing">🧪 Chapter 12 - Organic Chemistry Some Basic Principal & Techniques</a><br>
+<a href="https://drive.google.com/file/d/1M43W1v4Rvtrah1vpqjKMkv5AnyyJxviL/view?usp=sharing">🛢️ Chapter 13 - Hydrocarbons</a><br>
+<a href="https://drive.google.com/file/d/1fAfoBJ0rK9kPBkT5Ml6iq96OF1jYTHfP/view?usp=sharing">🌿 Chapter 14 - Environmental Chemistry</a><br><br>
+
+
+
+</div>
+
+
+<div class="section">
+<h2>Class X - Arihant Exemplar</h2>
+
+<a href="https://drive.google.com/file/d/1Wen0SMmYJNT4XWINcfWGtbNylyYibqc3/view?usp=sharing">📝 Intro</a><br>
+<a href="https://drive.google.com/file/d/1zx5B_Q_164e6SG2nytjT5wKj6FbKyoKB/view?usp=sharing">⚗️ Chapter 1 - Chemical Reactions and Equations</a><br>
+<a href="https://drive.google.com/file/d/1UOT6OL2Gl-fe26S-RyqPsMSJXoYzGVR1/view?usp=sharing">🧪 Chapter 2 - Acids, Bases and Salts</a><br>
+<a href="https://drive.google.com/file/d/1ifbilRFfaH-1Pq4KCbM-83cNpCxCrCZI/view?usp=sharing">🧲 Chapter 3 - Metals and Non-metals</a><br>
+<a href="https://drive.google.com/file/d/1KM3WByFCS5RNi_nJeKYoUmPeSGM7gaRs/view?usp=sharing">🟢 Chapter 4 - Carbon and its Compounds</a><br>
+<a href="https://drive.google.com/file/d/1gJhFKnf41VfHi4-Czd43aoDMIoN0xk-Z/view?usp=sharing">🧪 Chapter 5 - Periodic Classification Of Elements</a><br>
+<a href="https://drive.google.com/file/d/1HsDb08WoKfeN2YkuJ3po7w1tJgXIUc0f/view?usp=sharing">🌱 Chapter 6 - Life Processes</a><br>
+<a href="https://drive.google.com/file/d/1Z0BXcIcZf1lAV1QQgKhdarLUMYfijY7F/view?usp=sharing">🧠 Chapter 7 - Control and Coordination</a><br>
+<a href="https://drive.google.com/file/d/1ldQ8xVNe05fBrX0D_iLP1a8_Sm3uAmpe/view?usp=sharing">👶 Chapter 8 - How do Organisms Reproduce</a><br>
+<a href="https://drive.google.com/file/d/1elthNVNUpB_ERppq4j3rIW3Z-o52YVyC/view?usp=sharing">🧬 Chapter 9 - Heredity</a><br>
+<a href="https://drive.google.com/file/d/1bHhM5yThldTfejGy__Il7SvqCmavD1br/view?usp=sharing">💡 Chapter 10 - Light - Reflection and Refraction</a><br>
+<a href="https://drive.google.com/file/d/1yhdKAVeevn2_rJR3F6jS0ZORNuQWn5to/view?usp=sharing">👁️ Chapter 11 - The Human Eye and the Colourful World</a><br>
+<a href="https://drive.google.com/file/d/1DL7DMVMJXdYCzy02xcpqeBsE0fjpNDhv/view?usp=sharing">⚡ Chapter 12 - Electricity</a><br>
+<a href="https://drive.google.com/file/d/15CU62rAp0e6W_L7X9p3pfVJsz8GRauAn/view?usp=sharing">🧲 Chapter 13 - Magnetic Effects of Electric Current</a><br>
+<a href="https://drive.google.com/file/d/1Uni5biN6qiGBd8GcijAvVm-byUbs0Azt/view?usp=sharing">🌍 Chapter 14 - Sources Of Energy</a><br>
+<a href="https://drive.google.com/file/d/1MQSOxpGkegTfGtNrX257Wv5oWtv0CtSj/view?usp=sharing">🍀 Chapter 15 - Our Environment</a><br>
+<a href="https://drive.google.com/file/d/13jW8xyUabXO0Hz4mF-Qkzz_XP9GE1JpE/view?usp=sharing">🏞️ Chapter 16 - Management Of Natural Resources</a><br><br>
+
+
+
+</div>
+
+
+
+
+<div class="section">
+<h2>Class IX - CBSE Exemplar</h2>
+
+<a href="https://drive.google.com/file/d/1jpsH4u_u-3pLxKnieXVkednxg1d0MLdG/view?usp=sharing">🌡️ Chapter 1 - Matter In Our Surroundings</a><br>
+<a href="https://drive.google.com/file/d/1naXKjMXpe0UF2iYKU-4N08ePS-xxSif8/view?usp=sharing">🧪 Chapter 2 - Is Matter Around Us Pure</a><br>
+<a href="https://drive.google.com/file/d/1cEb0kQwvgAK8_bYyO6qBiczp6FgoJDYn/view?usp=sharing">⚛️ Chapter 3 - Atoms And Molecules</a><br>
+<a href="https://drive.google.com/file/d/1IjuPlaG-MA4GCUPruvjsAnGJCKFMvlce/view?usp=sharing">🧲 Chapter 4 - Structure Of The Atom</a><br>
+<a href="https://drive.google.com/file/d/1cETdHE13P2hqc_YYhBmN5HKvbPdmWhgH/view?usp=sharing">🌱 Chapter 5 - The Fundamental Unit Of Life</a><br>
+<a href="https://drive.google.com/file/d/1PfqDnAtVEhoSZ7TaVGOeOCadHTKp5POD/view?usp=sharing">🧠 Chapter 6 - Tissues</a><br>
+<a href="https://drive.google.com/file/d/1TJ3wQbXQ7D-iFomyDKyjgfi8gm8dSMLE/view?usp=sharing">🌿 Chapter 7 - Diversity In Living Organisms</a><br>
+<a href="https://drive.google.com/file/d/18BDWB6ckYsWyM745_49R7nxuXdZP2wqA/view?usp=sharing">🏃 Chapter 8 - Motion</a><br>
+<a href="https://drive.google.com/file/d/19dxy7aSEPK8C99SDHL-ljxY1r6xP90j4/view?usp=sharing">⚡ Chapter 9 - Force And Laws Of Motion</a><br>
+<a href="https://drive.google.com/file/d/1rH_zkTE9BLh8ESEL6EDanz5_DkLQEkyg/view?usp=sharing">🌍 Chapter 10 - Gravitation</a><br>
+<a href="https://drive.google.com/file/d/1yOtwNKyw4swBMFdiBgeXBvUpqoUsC_ts/view?usp=sharing">💪 Chapter 11 - Work And Energy</a><br>
+<a href="https://drive.google.com/file/d/1FFceKWWQsjzARkby1ETvXssc1PR8VCTQ/view?usp=sharing">🔊 Chapter 12 - Sound</a><br>
+<a href="https://drive.google.com/file/d/1-spypwZ9sOdqIYLN_iq2anPelbhkrVNd/view?usp=sharing">🩺 Chapter 13 - Why Do We Fall Ill</a><br>
+<a href="https://drive.google.com/file/d/11qW6IrznMJ1oXqTog5esX-w6rZMx_Wj8/view?usp=sharing">🌾 Chapter 14 - Natural Resources</a><br>
+<a href="https://drive.google.com/file/d/1kKc-OHn1jn0-B1hWJF3f8ct52XdB-xOF/view?usp=sharing">🥗 Chapter 15 - Improvement In Food Resources</a><br>
+
+
+
+</div>
+
+
+
+</div>
+
+<script>
+const toggleBtn = document.getElementById('themeToggle');
+
+function toggleTheme() {
+    const body = document.body;
+    const current = body.getAttribute("data-theme");
+
+    if (current === "dark") {
+        body.setAttribute("data-theme", "light");
+        toggleBtn.textContent = "🌙"; // Moon for light mode
+    } else {
+        body.setAttribute("data-theme", "dark");
+        toggleBtn.textContent = "🌞"; // Sun for dark mode
+    }
+}
+
+// Dark mode by default
+toggleBtn.textContent = "🌞";
+
+toggleBtn.addEventListener("click", toggleTheme);
+</script>
+
+</body>
+</html>
