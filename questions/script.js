@@ -1,44 +1,46 @@
-const output = document.getElementById("questionPaper");
-output.innerHTML = "<li>Loading questions...</li>";
+let questionData = {};
 
-fetch("questions.json")
+fetch("../questions.json")
   .then(res => res.json())
   .then(data => {
-    window.DB = data.classes;
-    output.innerHTML = "<li>JSON loaded successfully</li>";
+    questionData = data.classes;
+    console.log("Loaded:", questionData);
   })
-  .catch(err => {
-    output.innerHTML = "<li>JSON failed to load</li>";
-    console.error(err);
-  });
+  .catch(err => console.error("JSON load error:", err));
 
 function generatePaper() {
-  output.innerHTML = "";
+  const selectedClass = document.getElementById("classSelect").value;
+  const selectedChapter = document.getElementById("chapterSelect").value;
+  const count = Number(document.getElementById("questionCount").value);
+  const paper = document.getElementById("questionPaper");
 
-  const cls = document.getElementById("classSelect").value;
-  const ch = document.getElementById("chapterSelect").value;
-  const n = Number(document.getElementById("questionCount").value);
+  paper.innerHTML = "";
 
-  if (!cls || !ch || !n) {
-    output.innerHTML = "<li>Please select all fields</li>";
+  if (!selectedClass || !selectedChapter || !count) {
+    alert("Please select all fields");
     return;
   }
 
-  if (!window.DB || !window.DB[cls] || !window.DB[cls][ch]) {
-    output.innerHTML = "<li>No data found for selected class/chapter</li>";
+  if (
+    !questionData[selectedClass] ||
+    !questionData[selectedClass][selectedChapter]
+  ) {
+    alert("No questions found for selected class/chapter");
     return;
   }
 
-  const qs = window.DB[cls][ch];
+  const questions = [...questionData[selectedClass][selectedChapter]];
 
-  qs.slice(0, n).forEach(q => {
+  questions.sort(() => Math.random() - 0.5);
+
+  questions.slice(0, count).forEach(q => {
     const li = document.createElement("li");
     li.innerHTML = `
-      <strong>${q.question}</strong>
+      <p>${q.question}</p>
       <ul>
         ${q.options.map(o => `<li>${o}</li>`).join("")}
       </ul>
     `;
-    output.appendChild(li);
+    paper.appendChild(li);
   });
 }
