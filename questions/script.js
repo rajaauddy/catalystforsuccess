@@ -1,43 +1,52 @@
-let data = {};
+let questionData = {};
 
-fetch("questions.json")
+fetch("./questions.json")
   .then(res => res.json())
-  .then(json => {
-    data = json.chapters;
-
-    const chapterSelect = document.getElementById("chapterSelect");
-
-    Object.keys(data).forEach(chapter => {
-      const option = document.createElement("option");
-      option.value = chapter;
-      option.text = chapter;
-      chapterSelect.appendChild(option);
-    });
-  });
+  .then(data => {
+    questionData = data.classes;
+    console.log("Loaded data:", questionData);
+  })
+  .catch(err => console.error("Fetch error:", err));
 
 function generatePaper() {
-  const chapter = document.getElementById("chapterSelect").value;
-  const count = parseInt(document.getElementById("questionCount").value);
-  const questions = [...data[chapter]];
+  const selectedClass = document.getElementById("classSelect").value;
+  const selectedChapter = document.getElementById("chapterSelect").value;
+  const count = Number(document.getElementById("questionCount").value);
+  const paper = document.getElementById("questionPaper");
 
-  if (!count || count > questions.length) {
-    alert("Invalid number of questions");
+  paper.innerHTML = "";
+
+  if (!selectedClass || !selectedChapter || !count) {
+    alert("Select class, chapter and number of questions");
     return;
   }
 
-  // Shuffle questions
+  if (!questionData[selectedClass]) {
+    alert("Class not found in JSON");
+    return;
+  }
+
+  if (!questionData[selectedClass][selectedChapter]) {
+    alert("Chapter not found in JSON");
+    return;
+  }
+
+  const questions = [...questionData[selectedClass][selectedChapter]];
+
+  if (count > questions.length) {
+    alert(`Only ${questions.length} questions available`);
+    return;
+  }
+
+  // Shuffle
   questions.sort(() => Math.random() - 0.5);
 
-  const selected = questions.slice(0, count);
-  const paper = document.getElementById("questionPaper");
-  paper.innerHTML = "";
-
-  selected.forEach((q, index) => {
+  questions.slice(0, count).forEach(q => {
     const li = document.createElement("li");
     li.innerHTML = `
       <p>${q.question}</p>
       <ul>
-        ${q.options.map(opt => `<li>${opt}</li>`).join("")}
+        ${q.options.map(o => `<li>${o}</li>`).join("")}
       </ul>
     `;
     paper.appendChild(li);
