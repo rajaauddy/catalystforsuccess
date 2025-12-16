@@ -33,16 +33,6 @@
             "None of these"
           ],
           "answer": 1
-        },
-        {
-          "question": "CSS is mainly used for?",
-          "options": [
-            "Logic building",
-            "Styling web pages",
-            "Database handling",
-            "Server-side scripting"
-          ],
-          "answer": 1
         }
       ]
     },
@@ -58,38 +48,6 @@
             "Operating System"
           ],
           "answer": 1
-        },
-        {
-          "question": "JavaScript runs on?",
-          "options": [
-            "Server only",
-            "Browser",
-            "Database",
-            "Compiler"
-          ],
-          "answer": 1
-        }
-      ],
-      "Chapter 2": [
-        {
-          "question": "Which symbol is used for comments in JavaScript?",
-          "options": [
-            "//",
-            "##",
-            "<!-- -->",
-            "**"
-          ],
-          "answer": 0
-        },
-        {
-          "question": "Which keyword is used to declare a variable?",
-          "options": [
-            "var",
-            "int",
-            "float",
-            "string"
-          ],
-          "answer": 0
         }
       ]
     }
