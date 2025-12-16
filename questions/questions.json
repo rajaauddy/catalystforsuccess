@@ -11,43 +11,6 @@
             "None of these"
           ],
           "answer": 0
-        },
-        {
-          "question": "HTML is used for?",
-          "options": [
-            "Styling",
-            "Structuring web pages",
-            "Programming",
-            "Database"
-          ],
-          "answer": 1
-        }
-      ],
-      "Chapter 2": [
-        {
-          "question": "CSS stands for?",
-          "options": [
-            "Color Style Sheet",
-            "Cascading Style Sheet",
-            "Creative Style System",
-            "None of these"
-          ],
-          "answer": 1
-        }
-      ]
-    },
-
-    "Class 10": {
-      "Chapter 1": [
-        {
-          "question": "JavaScript is a?",
-          "options": [
-            "Markup Language",
-            "Programming Language",
-            "Database",
-            "Operating System"
-          ],
-          "answer": 1
         }
       ]
     }
