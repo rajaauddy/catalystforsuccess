@@ -1,6 +1,6 @@
 let questionData = {};
 
-fetch("questions.json")
+fetch("./questions.json")
   .then(res => res.json())
   .then(data => {
     questionData = data.classes;
