@@ -1,54 +1,44 @@
-let questionData = {};
+const output = document.getElementById("questionPaper");
+output.innerHTML = "<li>Loading questions...</li>";
 
-fetch("./questions.json")
+fetch("questions.json")
   .then(res => res.json())
   .then(data => {
-    questionData = data.classes;
-    console.log("Loaded data:", questionData);
+    window.DB = data.classes;
+    output.innerHTML = "<li>JSON loaded successfully</li>";
   })
-  .catch(err => console.error("Fetch error:", err));
+  .catch(err => {
+    output.innerHTML = "<li>JSON failed to load</li>";
+    console.error(err);
+  });
 
 function generatePaper() {
-  const selectedClass = document.getElementById("classSelect").value;
-  const selectedChapter = document.getElementById("chapterSelect").value;
-  const count = Number(document.getElementById("questionCount").value);
-  const paper = document.getElementById("questionPaper");
+  output.innerHTML = "";
 
-  paper.innerHTML = "";
+  const cls = document.getElementById("classSelect").value;
+  const ch = document.getElementById("chapterSelect").value;
+  const n = Number(document.getElementById("questionCount").value);
 
-  if (!selectedClass || !selectedChapter || !count) {
-    alert("Select class, chapter and number of questions");
+  if (!cls || !ch || !n) {
+    output.innerHTML = "<li>Please select all fields</li>";
     return;
   }
 
-  if (!questionData[selectedClass]) {
-    alert("Class not found in JSON");
+  if (!window.DB || !window.DB[cls] || !window.DB[cls][ch]) {
+    output.innerHTML = "<li>No data found for selected class/chapter</li>";
     return;
   }
 
-  if (!questionData[selectedClass][selectedChapter]) {
-    alert("Chapter not found in JSON");
-    return;
-  }
+  const qs = window.DB[cls][ch];
 
-  const questions = [...questionData[selectedClass][selectedChapter]];
-
-  if (count > questions.length) {
-    alert(`Only ${questions.length} questions available`);
-    return;
-  }
-
-  // Shuffle
-  questions.sort(() => Math.random() - 0.5);
-
-  questions.slice(0, count).forEach(q => {
+  qs.slice(0, n).forEach(q => {
     const li = document.createElement("li");
     li.innerHTML = `
-      <p>${q.question}</p>
+      <strong>${q.question}</strong>
       <ul>
         ${q.options.map(o => `<li>${o}</li>`).join("")}
       </ul>
     `;
-    paper.appendChild(li);
+    output.appendChild(li);
   });
 }
