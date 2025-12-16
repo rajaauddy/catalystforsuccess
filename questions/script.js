@@ -1,37 +1,55 @@
 let questionData = {};
+let dataLoaded = false;
 
 fetch("./questions.json")
   .then(res => res.json())
   .then(data => {
     questionData = data.classes;
+    dataLoaded = true;
     console.log("Loaded:", questionData);
   })
   .catch(err => console.error("JSON load error:", err));
 
+function loadChapters() {
+  const cls = document.getElementById("classSelect").value;
+  const chapterSelect = document.getElementById("chapterSelect");
+
+  chapterSelect.innerHTML = `<option value="">Select Chapter</option>`;
+
+  if (!questionData[cls]) return;
+
+  Object.keys(questionData[cls]).forEach(ch => {
+    const opt = document.createElement("option");
+    opt.value = ch;
+    opt.textContent = ch;
+    chapterSelect.appendChild(opt);
+  });
+}
+
 function generatePaper() {
-  const selectedClass = document.getElementById("classSelect").value;
-  const selectedChapter = document.getElementById("chapterSelect").value;
+  if (!dataLoaded) {
+    alert("Questions are still loading");
+    return;
+  }
+
+  const cls = document.getElementById("classSelect").value;
+  const ch = document.getElementById("chapterSelect").value;
   const count = Number(document.getElementById("questionCount").value);
   const paper = document.getElementById("questionPaper");
 
   paper.innerHTML = "";
 
-  if (!selectedClass || !selectedChapter || !count) {
+  if (!cls || !ch || !count) {
     alert("Please select all fields");
     return;
   }
 
-  if (
-    !questionData[selectedClass] ||
-    !questionData[selectedClass][selectedChapter]
-  ) {
-    alert("No questions found for selected class/chapter");
+  const questions = questionData[cls][ch];
+
+  if (!questions || questions.length === 0) {
+    alert("No questions found");
     return;
   }
-
-  const questions = [...questionData[selectedClass][selectedChapter]];
-
-  questions.sort(() => Math.random() - 0.5);
 
   questions.slice(0, count).forEach(q => {
     const li = document.createElement("li");
