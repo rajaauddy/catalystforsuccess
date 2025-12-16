@@ -1,0 +1,28 @@
+{
+  "chapters": {
+    "Chapter 1": [
+      {
+        "question": "HTML stands for?",
+        "options": ["Hyper Text Markup Language", "High Text Machine Language", "Hyperlinks Text Mark Language", "None"],
+        "answer": 0
+      },
+      {
+        "question": "HTML is used for?",
+        "options": ["Styling", "Structuring web pages", "Programming", "Database"],
+        "answer": 1
+      }
+    ],
+    "Chapter 2": [
+      {
+        "question": "CSS stands for?",
+        "options": ["Color Style Sheet", "Cascading Style Sheet", "Creative Style System", "None"],
+        "answer": 1
+      },
+      {
+        "question": "CSS is used for?",
+        "options": ["Logic", "Structure", "Styling", "Database"],
+        "answer": 2
+      }
+    ]
+  }
+}
