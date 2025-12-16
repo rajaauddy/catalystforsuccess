@@ -1,43 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MCQ Question Paper Generator</title>
-</head>
-<body>
+{
+  "classes": {
+    "Class 9": {
+      "Chapter 1": [
+        {
+          "question": "HTML stands for?",
+          "options": [
+            "Hyper Text Markup Language",
+            "High Text Machine Language",
+            "Hyperlinks Text Mark Language",
+            "None of these"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "HTML is used for?",
+          "options": [
+            "Styling",
+            "Structuring web pages",
+            "Programming",
+            "Database"
+          ],
+          "answer": 1
+        }
+      ],
+      "Chapter 2": [
+        {
+          "question": "CSS stands for?",
+          "options": [
+            "Color Style Sheet",
+            "Cascading Style Sheet",
+            "Creative Style System",
+            "None of these"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "CSS is mainly used for?",
+          "options": [
+            "Logic building",
+            "Styling web pages",
+            "Database handling",
+            "Server-side scripting"
+          ],
+          "answer": 1
+        }
+      ]
+    },
 
-  <h2>MCQ Question Paper Generator</h2>
-
-  <!-- Select Class -->
-  <label>Class:</label>
-  <select id="classSelect">
-    <option value="">Select Class</option>
-  </select>
-
-  <br><br>
-
-  <!-- Select Chapter -->
-  <label>Chapter:</label>
-  <select id="chapterSelect">
-    <option value="">Select Chapter</option>
-  </select>
-
-  <br><br>
-
-  <!-- Number of Questions -->
-  <label>No. of Questions:</label>
-  <input type="number" id="questionCount" min="1">
-
-  <br><br>
-
-  <button onclick="generatePaper()">Generate Question Paper</button>
-
-  <hr>
-
-  <!-- Output -->
-  <ol id="questionPaper"></ol>
-
-  <script src="script.js"></script>
-
-</body>
-</html>
+    "Class 10": {
+      "Chapter 1": [
+        {
+          "question": "JavaScript is a?",
+          "options": [
+            "Markup Language",
+            "Programming Language",
+            "Database",
+            "Operating System"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "JavaScript runs on?",
+          "options": [
+            "Server only",
+            "Browser",
+            "Database",
+            "Compiler"
+          ],
+          "answer": 1
+        }
+      ],
+      "Chapter 2": [
+        {
+          "question": "Which symbol is used for comments in JavaScript?",
+          "options": [
+            "//",
+            "##",
+            "<!-- -->",
+            "**"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Which keyword is used to declare a variable?",
+          "options": [
+            "var",
+            "int",
+            "float",
+            "string"
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  }
+}
