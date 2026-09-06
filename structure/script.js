@@ -1,36 +1,16 @@
-/* =========================================================
-   CATALYST FOR SUCCESS - IMAGE SEARCH
-   =========================================================
-
-   GitHub Account:
-   rajaauddy
-
-   Repository:
-   catalystforsuccess
-
-   Website folder:
-   structure
-
-   Image folder:
-   structure/images
-
-   ========================================================= */
-
-
-/* =========================================================
-   GITHUB SETTINGS
-   ========================================================= */
+// ============================================
+// GITHUB SETTINGS
+// ============================================
 
 const GITHUB_USERNAME = "rajaauddy";
-
 const GITHUB_REPOSITORY = "catalystforsuccess";
-
+const GITHUB_BRANCH = "main";
 const IMAGE_FOLDER = "structure/images";
 
 
-/* =========================================================
-   SUPPORTED IMAGE FILES
-   ========================================================= */
+// ============================================
+// SUPPORTED IMAGE FORMATS
+// ============================================
 
 const IMAGE_EXTENSIONS = [
     ".jpg",
@@ -43,16 +23,16 @@ const IMAGE_EXTENSIONS = [
 ];
 
 
-/* =========================================================
-   VARIABLES
-   ========================================================= */
+// ============================================
+// VARIABLES
+// ============================================
 
 let allImages = [];
 
 
-/* =========================================================
-   GET HTML ELEMENTS
-   ========================================================= */
+// ============================================
+// HTML ELEMENTS
+// ============================================
 
 const searchInput =
     document.getElementById("searchInput");
@@ -67,54 +47,39 @@ const results =
     document.getElementById("results");
 
 
-/* =========================================================
-   LOAD IMAGES FROM GITHUB
-   ========================================================= */
+// ============================================
+// GITHUB API URL
+// ============================================
+
+const API_URL =
+    `https://api.github.com/repos/` +
+    `${GITHUB_USERNAME}/` +
+    `${GITHUB_REPOSITORY}/contents/` +
+    `${IMAGE_FOLDER}?ref=${GITHUB_BRANCH}`;
+
+
+// ============================================
+// LOAD IMAGES
+// ============================================
 
 async function loadImages() {
 
     status.textContent =
-        "⏳ Loading image library...";
-
-    results.innerHTML = "";
-
-
-    /*
-     * GitHub API address
-     *
-     * Repository:
-     * rajaauddy/catalystforsuccess
-     *
-     * Folder:
-     * structure/images
-     */
-
-    const apiURL =
-        `https://api.github.com/repos/` +
-        `${GITHUB_USERNAME}/` +
-        `${GITHUB_REPOSITORY}/contents/` +
-        `${IMAGE_FOLDER}`;
-
+        "Loading image library...";
 
     try {
 
         const response =
-            await fetch(
-                apiURL,
-                {
-                    cache: "no-store"
-                }
-            );
+            await fetch(API_URL, {
+                cache: "no-store"
+            });
 
-
-        /* ---------------------------------------------
-           CHECK GITHUB RESPONSE
-        --------------------------------------------- */
 
         if (!response.ok) {
 
             throw new Error(
-                `GitHub returned HTTP ${response.status}`
+                "GitHub API error: " +
+                response.status
             );
 
         }
@@ -124,82 +89,57 @@ async function loadImages() {
             await response.json();
 
 
-        /* ---------------------------------------------
-           MAKE SURE FOLDER WAS FOUND
-        --------------------------------------------- */
-
         if (!Array.isArray(files)) {
 
             throw new Error(
-                "GitHub did not return a folder."
+                "Images folder was not found."
             );
 
         }
 
 
-        /* ---------------------------------------------
-           FIND IMAGE FILES
-        --------------------------------------------- */
+        // Keep image files only
 
         allImages =
-            files.filter(
-                file => {
+            files.filter(file => {
 
-                    return (
-                        file.type === "file" &&
-                        isImageFile(file.name)
-                    );
-
-                }
-            );
-
-
-        /* ---------------------------------------------
-           SORT IMAGES
-        --------------------------------------------- */
-
-        allImages.sort(
-            (a, b) => {
-
-                return a.name.localeCompare(
-                    b.name,
-                    undefined,
-                    {
-                        numeric: true,
-                        sensitivity: "base"
-                    }
+                return (
+                    file.type === "file" &&
+                    isImage(file.name)
                 );
 
-            }
+            });
+
+
+        // Sort alphabetically
+
+        allImages.sort((a, b) =>
+            a.name.localeCompare(
+                b.name,
+                undefined,
+                {
+                    numeric: true,
+                    sensitivity: "base"
+                }
+            )
         );
 
 
-        /* ---------------------------------------------
-           SHOW STATUS
-        --------------------------------------------- */
-
         status.textContent =
-            `✅ ${allImages.length} image(s) available.`;
+            `${allImages.length} image(s) available.`;
 
 
-        /* ---------------------------------------------
-           WELCOME MESSAGE
-        --------------------------------------------- */
-
-        showWelcome();
+        showStartMessage();
 
 
     }
     catch (error) {
 
-        console.error(
-            "GitHub image error:",
-            error
-        );
+        console.error(error);
 
 
         status.textContent =
-            "❌ Image library unavailable.";
+            "Image library unavailable";
 
 
         results.innerHTML = `
@@ -211,29 +151,27 @@ async function loadImages() {
                 </h2>
 
                 <p>
-                    Please check your GitHub
-                    repository and image folder.
+                    GitHub could not access:
                 </p>
 
                 <p>
                     <strong>
-                        Account:
+                        structure/images
                     </strong>
-                    rajaauddy
                 </p>
 
                 <p>
+                    Repository:
                     <strong>
-                        Repository:
+                        rajaauddy/catalystforsuccess
                     </strong>
-                    catalystforsuccess
                 </p>
 
                 <p>
-                    <strong>
-                        Image folder:
-                    </strong>
-                    structure/images
+                    Please make sure your images are
+                    actually inside the
+                    <strong>images</strong>
+                    folder.
                 </p>
 
             </div>
@@ -245,29 +183,29 @@ async function loadImages() {
 }
 
 
-/* =========================================================
-   CHECK IMAGE EXTENSION
-   ========================================================= */
+// ============================================
+// CHECK IMAGE FILE
+// ============================================
 
-function isImageFile(filename) {
+function isImage(filename) {
 
-    const lowerName =
+    const name =
         filename.toLowerCase();
 
 
     return IMAGE_EXTENSIONS.some(
         extension =>
-            lowerName.endsWith(extension)
+            name.endsWith(extension)
     );
 
 }
 
 
-/* =========================================================
-   WELCOME MESSAGE
-   ========================================================= */
+// ============================================
+// START MESSAGE
+// ============================================
 
-function showWelcome() {
+function showStartMessage() {
 
     results.innerHTML = `
 
@@ -293,13 +231,13 @@ function showWelcome() {
 }
 
 
-/* =========================================================
-   SEARCH IMAGES
-   ========================================================= */
+// ============================================
+// SEARCH
+// ============================================
 
 function searchImages() {
 
-    const searchText =
+    const text =
         searchInput.value
         .trim()
         .toLowerCase();
@@ -308,49 +246,37 @@ function searchImages() {
     results.innerHTML = "";
 
 
-    /* ---------------------------------------------
-       EMPTY SEARCH
-    --------------------------------------------- */
+    // Empty search
 
-    if (searchText === "") {
+    if (!text) {
 
         status.textContent =
-            `✅ ${allImages.length} image(s) available.`;
+            `${allImages.length} image(s) available.`;
 
-        showWelcome();
+        showStartMessage();
 
         return;
 
     }
 
 
-    /* ---------------------------------------------
-       SEARCH FILE NAMES
-    --------------------------------------------- */
+    // Search filename
 
     const matches =
-        allImages.filter(
-            image => {
+        allImages.filter(image => {
 
-                return image.name
-                    .toLowerCase()
-                    .includes(searchText);
+            return image.name
+                .toLowerCase()
+                .includes(text);
 
-            }
-        );
+        });
 
-
-    /* ---------------------------------------------
-       RESULT COUNT
-    --------------------------------------------- */
 
     status.textContent =
-        `🔎 ${matches.length} image(s) found.`;
+        `${matches.length} image(s) found.`;
 
 
-    /* ---------------------------------------------
-       NOTHING FOUND
-    --------------------------------------------- */
+    // Nothing found
 
     if (matches.length === 0) {
 
@@ -363,11 +289,10 @@ function searchImages() {
                 </h2>
 
                 <p>
-                    No image matching
+                    No image found for
                     <strong>
-                        "${escapeHTML(searchText)}"
+                        ${escapeHTML(text)}
                     </strong>
-                    was found.
                 </p>
 
             </div>
@@ -379,151 +304,109 @@ function searchImages() {
     }
 
 
-    /* ---------------------------------------------
-       DISPLAY IMAGES
-    --------------------------------------------- */
+    // Display images
 
     matches.forEach(
-        image => {
-
-            createImageCard(image);
-
-        }
+        image =>
+            displayImage(image)
     );
 
 }
 
 
-/* =========================================================
-   CREATE IMAGE CARD
-   ========================================================= */
+// ============================================
+// DISPLAY IMAGE
+// ============================================
 
-function createImageCard(file) {
+function displayImage(file) {
 
     const card =
         document.createElement("div");
-
 
     card.className =
         "image-card";
 
 
-    /*
-     * GitHub gives us the raw download URL.
-     *
-     * Example:
-     *
-     * https://raw.githubusercontent.com/
-     * rajaauddy/
-     * catalystforsuccess/
-     * main/
-     * structure/images/dog.jpg
-     */
+    // Build raw GitHub image URL
 
     const imageURL =
-        file.download_url;
+        `https://raw.githubusercontent.com/` +
+        `${GITHUB_USERNAME}/` +
+        `${GITHUB_REPOSITORY}/` +
+        `${GITHUB_BRANCH}/` +
+        `${IMAGE_FOLDER}/` +
+        encodeURIComponent(file.name);
 
 
-    /* ---------------------------------------------
-       IMAGE
-    --------------------------------------------- */
+    // Image
 
-    const image =
+    const img =
         document.createElement("img");
 
-
-    image.src =
+    img.src =
         imageURL;
 
-
-    image.alt =
+    img.alt =
         file.name;
 
-
-    image.loading =
+    img.loading =
         "lazy";
 
 
-    image.className =
-        "image-preview";
-
-
-    /* ---------------------------------------------
-       IMAGE NAME
-    --------------------------------------------- */
+    // Filename
 
     const filename =
         document.createElement("div");
 
-
     filename.className =
         "filename";
-
 
     filename.textContent =
         file.name;
 
 
-    /* ---------------------------------------------
-       COPY BUTTON
-    --------------------------------------------- */
+    // Copy button
 
     const copyButton =
         document.createElement("button");
 
-
     copyButton.className =
         "copy-btn";
 
+    copyButton.type =
+        "button";
 
     copyButton.textContent =
         "📋 Copy Image";
 
 
-    copyButton.type =
-        "button";
-
-
-    /* ---------------------------------------------
-       COPY ACTION
-    --------------------------------------------- */
-
-    copyButton.addEventListener(
-        "click",
-        function() {
+    copyButton.onclick =
+        function () {
 
             copyImage(
                 imageURL,
                 copyButton
             );
 
-        }
-    );
+        };
 
 
-    /* ---------------------------------------------
-       ADD ELEMENTS TO CARD
-    --------------------------------------------- */
+    // Add elements
 
-    card.appendChild(image);
+    card.appendChild(img);
 
     card.appendChild(filename);
 
     card.appendChild(copyButton);
-
-
-    /* ---------------------------------------------
-       ADD CARD TO PAGE
-    --------------------------------------------- */
 
     results.appendChild(card);
 
 }
 
 
-/* =========================================================
-   COPY IMAGE
-   ========================================================= */
+// ============================================
+// COPY IMAGE
+// ============================================
 
 async function copyImage(
     imageURL,
@@ -544,9 +427,7 @@ async function copyImage(
             true;
 
 
-        /* ---------------------------------------------
-           DOWNLOAD IMAGE
-        --------------------------------------------- */
+        // Download image
 
         const response =
             await fetch(
@@ -570,33 +451,13 @@ async function copyImage(
             await response.blob();
 
 
-        /* ---------------------------------------------
-           CONVERT TO PNG
-        --------------------------------------------- */
+        // Convert to PNG
 
         const pngBlob =
             await convertToPNG(blob);
 
 
-        /* ---------------------------------------------
-           CHECK CLIPBOARD SUPPORT
-        --------------------------------------------- */
-
-        if (
-            !navigator.clipboard ||
-            !window.ClipboardItem
-        ) {
-
-            throw new Error(
-                "Clipboard image support is unavailable."
-            );
-
-        }
-
-
-        /* ---------------------------------------------
-           COPY IMAGE
-        --------------------------------------------- */
+        // Copy
 
         await navigator.clipboard.write([
 
@@ -610,16 +471,12 @@ async function copyImage(
         ]);
 
 
-        /* ---------------------------------------------
-           SUCCESS
-        --------------------------------------------- */
-
         button.textContent =
             "✅ Copied!";
 
 
         setTimeout(
-            function() {
+            () => {
 
                 button.textContent =
                     oldText;
@@ -650,14 +507,14 @@ async function copyImage(
 
 
         alert(
-            "Could not copy the image.\n\n" +
-            "Please open your GitHub Pages website " +
-            "using Chrome or Microsoft Edge."
+            "Copy failed.\n\n" +
+            "Please use Chrome or Edge " +
+            "and open the GitHub Pages website."
         );
 
 
         setTimeout(
-            function() {
+            () => {
 
                 button.textContent =
                     oldText;
@@ -671,35 +528,28 @@ async function copyImage(
 }
 
 
-/* =========================================================
-   CONVERT IMAGE TO PNG
-   ========================================================= */
+// ============================================
+// CONVERT IMAGE TO PNG
+// ============================================
 
 function convertToPNG(blob) {
 
     return new Promise(
-        function(resolve, reject) {
+        (resolve, reject) => {
 
-            const image =
+            const img =
                 new Image();
 
-
-            image.crossOrigin =
+            img.crossOrigin =
                 "anonymous";
 
 
-            const objectURL =
-                URL.createObjectURL(
-                    blob
-                );
+            const url =
+                URL.createObjectURL(blob);
 
 
-            /* ---------------------------------------------
-               IMAGE LOADED
-            --------------------------------------------- */
-
-            image.onload =
-                function() {
+            img.onload =
+                function () {
 
                     try {
 
@@ -710,21 +560,20 @@ function convertToPNG(blob) {
 
 
                         canvas.width =
-                            image.naturalWidth;
-
+                            img.naturalWidth;
 
                         canvas.height =
-                            image.naturalHeight;
+                            img.naturalHeight;
 
 
-                        const context =
+                        const ctx =
                             canvas.getContext(
                                 "2d"
                             );
 
 
-                        context.drawImage(
-                            image,
+                        ctx.drawImage(
+                            img,
                             0,
                             0
                         );
@@ -734,7 +583,7 @@ function convertToPNG(blob) {
                             function(pngBlob) {
 
                                 URL.revokeObjectURL(
-                                    objectURL
+                                    url
                                 );
 
 
@@ -749,7 +598,7 @@ function convertToPNG(blob) {
 
                                     reject(
                                         new Error(
-                                            "Could not create PNG."
+                                            "PNG conversion failed."
                                         )
                                     );
 
@@ -759,47 +608,38 @@ function convertToPNG(blob) {
                             "image/png"
                         );
 
-
                     }
                     catch (error) {
 
                         URL.revokeObjectURL(
-                            objectURL
+                            url
                         );
 
-
-                        reject(
-                            error
-                        );
+                        reject(error);
 
                     }
 
                 };
 
 
-            /* ---------------------------------------------
-               IMAGE FAILED
-            --------------------------------------------- */
-
-            image.onerror =
-                function() {
+            img.onerror =
+                function () {
 
                     URL.revokeObjectURL(
-                        objectURL
+                        url
                     );
-
 
                     reject(
                         new Error(
-                            "Could not load image."
+                            "Image could not be loaded."
                         )
                     );
 
                 };
 
 
-            image.src =
-                objectURL;
+            img.src =
+                url;
 
         }
     );
@@ -807,45 +647,25 @@ function convertToPNG(blob) {
 }
 
 
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
+// ============================================
+// SECURITY
+// ============================================
 
 function escapeHTML(text) {
 
     return text
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
 }
 
 
-/* =========================================================
-   SEARCH BUTTON
-   ========================================================= */
+// ============================================
+// SEARCH BUTTON
+// ============================================
 
 searchBtn.addEventListener(
     "click",
@@ -853,17 +673,15 @@ searchBtn.addEventListener(
 );
 
 
-/* =========================================================
-   ENTER KEY
-   ========================================================= */
+// ============================================
+// ENTER KEY
+// ============================================
 
 searchInput.addEventListener(
     "keydown",
     function(event) {
 
-        if (
-            event.key === "Enter"
-        ) {
+        if (event.key === "Enter") {
 
             searchImages();
 
@@ -873,8 +691,8 @@ searchInput.addEventListener(
 );
 
 
-/* =========================================================
-   LOAD IMAGE LIBRARY
-   ========================================================= */
+// ============================================
+// START
+// ============================================
 
 loadImages();
