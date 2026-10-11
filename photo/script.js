@@ -124,3 +124,38 @@ function renderPhotos() {
 searchInput.addEventListener("input", renderPhotos);
 
 loadPhotos();
+
+
+const copyButton = document.getElementById("copyButton");
+const copyStatus = document.getElementById("copyStatus");
+
+if (copyButton && copyStatus) {
+  copyButton.addEventListener("click", async () => {
+    const textToCopy = "Chemistry Photo Library";
+
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(textToCopy);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = textToCopy;
+        textarea.style.position = "fixed";
+        textarea.style.left = "-9999px";
+
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        const copied = document.execCommand("copy");
+        textarea.remove();
+
+        if (!copied) throw new Error("Copy failed");
+      }
+
+      copyStatus.textContent = "✓ Copied successfully!";
+      copyButton.textContent = "✓ Copied!";
+    } catch (error) {
+      copyStatus.textContent = "Copy failed. Please try again.";
+      console.error("Clipboard error:", error);
+    }
+  });
+}
