@@ -6,8 +6,8 @@ const emptyState = document.getElementById("emptyState");
 const emptyTitle = document.getElementById("emptyTitle");
 const emptyText = document.getElementById("emptyText");
 
-const GITHUB_USERNAME = "YOUR_GITHUB_USERNAME";
-const REPOSITORY_NAME = "YOUR_REPOSITORY_NAME";
+const GITHUB_USERNAME = "rajaauddy";
+const REPOSITORY_NAME = "catalystforsuccess";
 const BRANCH = "main";
 const IMAGE_FOLDER = "photo/images";
 
