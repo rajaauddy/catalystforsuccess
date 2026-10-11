@@ -1,1 +1,78 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Chemistry Photo Library</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="logo">CH</div>
+      <p class="eyebrow">YOUR PERSONAL STUDY LIBRARY</p>
+      <h1>Chemistry <span>Photo Search</span></h1>
+      <p class="subtitle">
+        All your scanned chemistry notes, in one searchable place.
+      </p>
+    </header>
+
+    <section class="search-panel">
+      <label for="searchInput">Search your chemistry photos</label>
+
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Try eth, benzene, alcohol..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <kbd>/</kbd>
+      </div>
+
+      <p class="hint">Search by filename. Results update as you type.</p>
+    </section>
+
+    <section class="toolbar">
+      <div>
+        <h2>Your collection</h2>
+        <p id="resultCount" aria-live="polite">Loading photos...</p>
+      </div>
+
+      <button id="chooseFolder" class="folder-button" type="button">
+        <span aria-hidden="true">＋</span> Select photos folder
+      </button>
+
+      <input
+        type="file"
+        id="folderInput"
+        webkitdirectory
+        directory
+        multiple
+        hidden
+        aria-label="Choose a photos folder"
+      >
+    </section>
+
+    <p id="status" class="status" role="status"></p>
+
+    <section id="gallery" class="gallery"></section>
+
+    <section id="emptyState" class="empty-state" hidden>
+      <div class="empty-icon">⌕</div>
+      <h3 id="emptyTitle">No photos found</h3>
+      <p id="emptyText">Try another search term.</p>
+    </section>
+
+    <footer>
+      <span>CHEMISTRY PHOTO LIBRARY</span>
+      <span>Simple. Fast. Searchable.</span>
+    </footer>
+  </main>
+</body>
+</html>
