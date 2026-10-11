@@ -75,25 +75,11 @@
       <span>Simple. Fast. Searchable.</span>
     </footer>
   </main>
-  <div class="copy-container">
+<div class="copy-container">
   <button id="copyButton" class="copy-button" type="button">
-    <span>▣</span> Copy to Clipboard
+    📋 Copy to Clipboard
   </button>
   <span id="copyStatus" role="status"></span>
 </div>
-  const copyButton = document.getElementById("copyButton");
-const copyStatus = document.getElementById("copyStatus");
-
-copyButton.addEventListener("click", async () => {
-  const textToCopy = "Chemistry Photo Library";
-
-  try {
-    await navigator.clipboard.writeText(textToCopy);
-    copyStatus.textContent = "Copied successfully!";
-  } catch {
-    copyStatus.textContent =
-      "Copy unavailable. Please allow clipboard access.";
-  }
-});
 </body>
 </html>
