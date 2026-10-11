@@ -81,5 +81,19 @@
   </button>
   <span id="copyStatus" role="status"></span>
 </div>
+  const copyButton = document.getElementById("copyButton");
+const copyStatus = document.getElementById("copyStatus");
+
+copyButton.addEventListener("click", async () => {
+  const textToCopy = "Chemistry Photo Library";
+
+  try {
+    await navigator.clipboard.writeText(textToCopy);
+    copyStatus.textContent = "Copied successfully!";
+  } catch {
+    copyStatus.textContent =
+      "Copy unavailable. Please allow clipboard access.";
+  }
+});
 </body>
 </html>
