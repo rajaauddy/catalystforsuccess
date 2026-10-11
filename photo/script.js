@@ -5,7 +5,7 @@
 ========================================== */
 
 // 1. GITHUB CONFIGURATION
-const GITHUB_USERNAME = "YOUR_GITHUB_USERNAME";
+const GITHUB_USERNAME = "rajaauddy";
 const REPOSITORY_NAME = "catalystforsuccess";
 const BRANCH = "main";
 const IMAGE_FOLDER = "photo/images";
